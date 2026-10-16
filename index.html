@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jalisco 23 — Hojas de Ruta Virtual / Inspección Termográfica</title>
+<style>
+:root{--bg:#111827;--acc:#f59e0b;--acc2:#ef4444;--card:#fff;--line:#e2e8f0;--mut:#64748b;--ok:#10b981;--warn:#f59e0b;--crit:#ef4444;--r:16px;--sh:0 10px 30px rgba(0,0,0,.12)}
+*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f1f5f9;color:#111827}
+header{background:linear-gradient(135deg,#09090b 0%,#1c1917 40%,#92400e 75%,#f59e0b 100%);color:#fff;padding:18px 20px;position:sticky;top:0;z-index:20}
+.wrap{max-width:1240px;margin:0 auto}.top{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.logo{width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:30px}
+h1{margin:0;font-size:21px}h1 small{display:block;font-weight:400;opacity:.85;font-size:13px}
+.bpill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+button{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
+.btn-w{background:#fff;color:#111827}.btn-g{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn-d{background:#111827;color:#fff}.btn-o{background:var(--acc);color:#111827}.btn-r{background:var(--crit);color:#fff}.btn-gr{background:var(--ok);color:#fff}.btn-l{background:#fff;border:1px solid var(--line)}.btn-sm{padding:7px 10px;font-size:13px;border-radius:8px}
+main{padding:18px 14px 70px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;margin-bottom:12px}
+.stat{background:#fff;border-radius:var(--r);padding:14px;border:1px solid var(--line);box-shadow:var(--sh)}
+.stat b{font-size:24px;display:block}.stat span{color:var(--mut);font-size:12.5px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tab{padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:700;color:var(--mut);cursor:pointer}
+.tab.active{background:#111827;color:#fff;border-color:#111827}
+.toolbar{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;box-shadow:var(--sh)}
+.toolbar input,.toolbar select{padding:10px;border:1px solid var(--line);border-radius:10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;margin-top:12px}
+.card{background:#fff;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column}
+.card .head{padding:14px 14px 6px}.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800;margin:2px 4px 2px 0}
+.l5{background:#dbeafe;color:#1e40af}.l6{background:#ffedd5;color:#9a3412}
+.niv{background:#f1f5f9;color:#334155;border:1px solid var(--line)}
+.e-plan{background:#eef2ff;color:#4338ca}.e-curso{background:#fef9c3;color:#92400e}.e-ok{background:#dcfce7;color:#166534}.e-pausa{background:#fee2e2;color:#991b1b}
+.prog{height:10px;background:#f1f5f9;border-radius:99px;overflow:hidden;margin:10px 14px}.prog i{display:block;height:100%;background:linear-gradient(90deg,#f59e0b,#ef4444)}
+.meta{padding:0 14px 6px;color:var(--mut);font-size:13px;display:flex;gap:10px;flex-wrap:wrap}
+.foot{display:flex;gap:8px;padding:12px 14px;border-top:1px dashed var(--line);margin-top:auto;flex-wrap:wrap}
+.detail{background:#fff;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh);padding:18px;margin-top:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+label{font-size:13px;font-weight:700;color:#334155;display:grid;gap:6px}
+input[type=text],input[type=date],input[type=number],select,textarea{padding:11px;border:1px solid var(--line);border-radius:10px;width:100%;font-family:inherit;font-size:14px}
+textarea{min-height:70px}
+.nivsel{display:flex;flex-wrap:wrap;gap:8px}.nivsel label{background:#f8fafc;border:2px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;display:flex;gap:6px;align-items:center;font-size:13px}
+.nivsel input{accent-color:#f59e0b;width:auto}
+.punto{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.punto.alert{border-left:6px solid var(--warn);background:#fffbeb}.punto.crit{border-left:6px solid var(--crit);background:#fef2f2}.punto.okk{border-left:6px solid var(--ok);background:#f0fdf4}
+.prow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}@media(max-width:640px){.prow{grid-template-columns:1fr}}
+.foto{width:100%;max-height:240px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin-top:8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;padding:14px;z-index:50}.modal.open{display:grid}
+.sheet{background:#fff;border-radius:18px;max-width:820px;width:100%;max-height:92vh;overflow:auto;padding:20px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid var(--line);padding:8px;text-align:left}th{background:#111827;color:#fff}
+.empty{text-align:center;color:var(--mut);padding:34px}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:18px}
+.temp{font-size:22px;font-weight:800}
+@media print{header .actions,.toolbar,.tabs,.no-print{display:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap top">
+<div class="logo">🏭</div>
+<h1>TORRE JALISCO 23 — Balanceado <small>Hoja de ruta virtual • Inspección termográfica eléctrica + mecánica • Línea 5 / Línea 6</small></h1>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="bpill">N0</span><span class="bpill">N5</span><span class="bpill">N8</span><span class="bpill">N13</span><span class="bpill">N19</span><span class="bpill">N24</span><span class="bpill">N29</span><span class="bpill">N35</span><span class="bpill">N45</span></div>
+<div class="actions">
+<button class="btn-w" onclick="abrirModal()">+ Nueva ruta virtual</button>
+<button class="btn-g" onclick="exportarJSON()">⬇ Respaldo</button>
+<button class="btn-g" onclick="document.getElementById('imp').click()">⬆ Restaurar</button>
+<button class="btn-g" onclick="window.print()">🖨</button>
+<input type="file" id="imp" hidden accept="application/json" onchange="importar(event)">
+</div></div></header>
+
+<main class="wrap">
+<div class="stats" id="stats"></div>
+<div class="tabs">
+<div class="tab active" onclick="setTab('todas',this)">📋 Todas</div>
+<div class="tab" onclick="setTab('planificacion',this)">📝 Planificadas</div>
+<div class="tab" onclick="setTab('en_curso',this)">🌡️ En inspección</div>
+<div class="tab" onclick="setTab('completada',this)">✅ Cerradas</div>
+<div class="tab" onclick="setTab('fotos',this)">📸 Fotos / Hallazgos</div>
+</div>
+<div class="toolbar">
+<input id="q" placeholder="🔍 Buscar: equipo, tag, responsable, nivel..." oninput="render()" style="flex:2;min-width:200px">
+<select id="fLin" onchange="render()"><option value="">Línea 5 + 6</option><option>Línea 5</option><option>Línea 6</option></select>
+<select id="fNiv" onchange="render()"><option value="">Todos los niveles</option></select>
+<button class="btn-l btn-sm" onclick="cargarDemo()">✨ Demo Jalisco 23</button>
+<button class="btn-l btn-sm" onclick="vaciar()">🗑 Vaciar</button>
+</div>
+<div id="cards" class="cards"></div>
+<div id="galeria"></div>
+<div id="detalle"></div>
+</main>
+
+<div class="modal" id="modal"><div class="sheet">
+<h2 id="mt">Nueva hoja de ruta virtual — Jalisco 23</h2>
+<form onsubmit="guardar(event)">
+<input type="hidden" id="fId">
+<div class="grid2">
+<label>Nombre ruta*<input type="text" id="fNom" required placeholder="Ej: Ruta Termográfica L5 Turno A – N13 al N24"></label>
+<label>Línea*<select id="fLinea"><option>Línea 5</option><option>Línea 6</option></select></label>
+<label>Responsable / Termógrafo<input type="text" id="fResp" placeholder="Ej: J. Paredes"></label>
+<label>Fecha<input type="date" id="fFec"></label>
+<label>Turno<select id="fTur"><option>Turno A</option><option>Turno B</option><option>Turno C</option><option>Mixto</option></select></label>
+<label>Estado<select id="fEst"><option value="planificacion">Planificada</option><option value="en_curso">En inspección</option><option value="completada">Cerrada</option></select></label>
+</div>
+<label style="margin-top:10px">Niveles de la torre a recorrer* (selecciona varios)</label>
+<div class="nivsel" id="nivsel"></div>
+<label style="margin-top:10px">Notas / objetivo<textarea id="fDes" placeholder="Ej: Ruta semanal de balanceado, priorizar chumaceras y motores con historial de calentamiento..."></textarea></label>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+<button type="button" class="btn-l" onclick="cerrar()">Cancelar</button>
+<button class="btn-d" type="submit">💾 Guardar y añadir equipos</button>
+</div></form>
+<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px;margin-top:10px;font-size:13px">💡 Después de guardar, abre <b>👁 Ejecutar / ver</b> y añade los puntos de inspección por nivel con el catálogo de equipos.</div>
+</div></div>
+
+<footer>Jalisco 23 • Balanceado L5-L6 • Fotos térmicas se comprimen y guardan en este equipo • Exporta respaldo semanal</footer>
+
+<script>
+const KEY='jalisco23_v1';
+const NIVELES=[0,5,8,13,19,24,29,35,45];
+const EQUIPOS_ELEC=['Motor eléctrico','Tablero / CCM','Variador de frecuencia','Transformador','Cableado / conexiones','Sensor / instrumentación','Alumbrado / toma'];
+const EQUIPOS_MEC=['Chumacera','Banda transportadora','Transportador de tornillo / sinfín','Molino','Extrusora / peletizadora','Bomba de agua','Bomba de aceite','Báscula / dosificador','Secador','Ciclón','Elevador de cangilones','Filtro de mangas','Válvula rotativa / esclusa','Caja reductora / reductor','Piñón','Cadena de transmisión','Acondicionador','Otro equipo'];
+let rutas=JSON.parse(localStorage.getItem(KEY)||'[]');
+let tab='todas', det=null;
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem(KEY,JSON.stringify(rutas));}
+function uid(){return 'x'+Date.now().toString(36)+Math.floor(Math.random()*9999);}
+function esc(s){return (s||'').toString().replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+// init nivel filter + modal
+$('fNiv').innerHTML='<option value="">Todos los niveles</option>'+NIVELES.map(n=>`<option>Nivel ${n}</option>`).join('');
+$('nivsel').innerHTML=NIVELES.map(n=>`<label><input type="checkbox" value="${n}"> Nivel ${n}</label>`).join('');
+function getNivSel(){return [...document.querySelectorAll('#nivsel input:checked')].map(i=>+i.value);}
+function setNivSel(arr){document.querySelectorAll('#nivsel input').forEach(i=>i.checked=(arr||[]).includes(+i.value));}
+function setTab(t,el){tab=t;document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));el.classList.add('active');render();}
+function prog(r){if(!r.puntos||!r.puntos.length)return 0;return Math.round(r.puntos.filter(p=>p.temp!==''&&p.temp!=null).length/r.puntos.length*100);}
+function categ(p){return p.cat||'Mecánico';}
+
+function render(){
+ const q=$('q').value.toLowerCase(), fl=$('fLin').value, fn=$('fNiv').value.replace('Nivel ','');
+ let lista=rutas.filter(r=>{
+  if(tab!=='todas'&&tab!=='fotos'&&r.estado!==tab)return false;
+  if(fl&&r.linea!==fl)return false;
+  if(fn&&!(r.niveles||[]).includes(+fn))return false;
+  if(q){const txt=(r.nombre+' '+r.responsable+' '+r.linea+' '+(r.niveles||[]).join(' ')+' '+(r.puntos||[]).map(p=>p.equipo+' '+p.tag+' '+(p.obs||'')).join(' ')).toLowerCase(); if(!txt.includes(q))return false;}
+  return true;});
+ const tot=rutas.length, insp=rutas.filter(r=>r.estado==='en_curso').length, pts=rutas.reduce((a,r)=>a+(r.puntos||[]).length,0),
+  med=rutas.reduce((a,r)=>a+(r.puntos||[]).filter(p=>p.temp!==''&&p.temp!=null).length,0),
+  alertas=rutas.reduce((a,r)=>a+(r.puntos||[]).filter(p=>p.cond==='Alerta'||p.cond==='Crítico').length,0);
+ $('stats').innerHTML=`<div class="stat"><b>${tot}</b><span>🗺️ Rutas Jalisco 23</span></div>
+ <div class="stat"><b>${insp}</b><span>🌡️ En inspección</span></div>
+ <div class="stat"><b>${med}/${pts}</b><span>📍 Puntos medidos</span></div>
+ <div class="stat"><b style="color:${alertas?'#dc2626':'#166534'}">${alertas}</b><span>⚠️ Alertas / Críticos</span></div>
+ <div class="stat"><b>L5:${rutas.filter(r=>r.linea==='Línea 5').length} L6:${rutas.filter(r=>r.linea==='Línea 6').length}</b><span>🏭 Por línea</span></div>`;
+
+ if(tab==='fotos'){ $('cards').innerHTML=''; renderGaleria(); return; } else $('galeria').innerHTML='';
+ if(!lista.length){$('cards').innerHTML=`<div class="empty" style="grid-column:1/-1">Sin rutas. Crea la primera ruta virtual de la torre.<br><br><button class="btn-d" onclick="abrirModal()">+ Nueva ruta Jalisco 23</button></div>`;}
+ else $('cards').innerHTML=lista.map(r=>{const p=prog(r);const al=(r.puntos||[]).filter(x=>x.cond==='Alerta'||x.cond==='Crítico').length;
+ return `<div class="card"><div class="head">
+ <span class="badge ${r.linea==='Línea 5'?'l5':'l6'}">${esc(r.linea)}</span>
+ <span class="badge ${r.estado==='en_curso'?'e-curso':r.estado==='completada'?'e-ok':'e-plan'}">${r.estado==='en_curso'?'En inspección':r.estado==='completada'?'Cerrada':'Planificada'}</span>
+ ${al?`<span class="badge" style="background:#fee2e2;color:#991b1b">⚠️ ${al} alerta(s)</span>`:''}
+ <h3 style="margin:8px 0 4px">${esc(r.nombre)}</h3>
+ <div class="chips">${(r.niveles||[]).map(n=>`<span class="badge niv">N${n}</span>`).join('')}</div>
+ <div style="color:var(--mut);font-size:13px">👤 ${esc(r.responsable||'—')} • 📅 ${r.fecha||'—'} • ${esc(r.turno||'')} • 📍 ${(r.puntos||[]).length} puntos</div>
+ </div><div class="prog"><i style="width:${p}%"></i></div>
+ <div class="meta"><span>${p}% medido</span><span>${esc(r.descripcion||'').slice(0,80)}</span></div>
+ <div class="foot"><button class="btn-o btn-sm" onclick="ver('${r.id}')">👁 Ejecutar / ver</button>
+ <button class="btn-l btn-sm" onclick="editar('${r.id}')">✏</button>
+ <button class="btn-l btn-sm" onclick="duplicar('${r.id}')">⧉</button>
+ <button class="btn-l btn-sm" onclick="csv('${r.id}')">CSV</button>
+ <button class="btn-r btn-sm" onclick="eliminar('${r.id}')">✕</button></div></div>`;}).join('');
+ if(det) ver(det,true);
+ save();
+}
+
+function renderGaleria(){
+ let items=[];rutas.forEach(r=>(r.puntos||[]).forEach(p=>{if(p.foto||p.temp!==''&&p.temp!=null)items.push({r,p});}));
+ // ordenar críticos primero
+ items.sort((a,b)=>((b.p.cond==='Crítico')-(a.p.cond==='Crítico'))||((b.p.cond==='Alerta')-(a.p.cond==='Alerta')));
+ if(!items.length){$('galeria').innerHTML='<div class="empty">Aún no hay fotos ni lecturas. Ejecuta una ruta y sube la foto térmica de cada equipo.</div>';return;}
+ $('galeria').innerHTML=`<div class="detail"><h3>📸 Fotos termográficas y lecturas (${items.length})</h3>
+ <div class="cards">`+items.map(({r,p})=>`<div class="card"><div class="head">
+ <span class="badge ${r.linea==='Línea 5'?'l5':'l6'}">${esc(r.linea)} • N${p.nivel}</span>
+ <span class="badge" style="background:${p.cond==='Crítico'?'#fee2e2;color:#991b1b':p.cond==='Alerta'?'#fef9c3;color:#92400e':'#dcfce7;color:#166534'}">${esc(p.cond||'Normal')} ${p.temp!==''&&p.temp!=null?('• '+p.temp+'°C'):''}</span>
+ <h4 style="margin:6px 0">${esc(p.equipo)} ${p.tag?('• '+esc(p.tag)):''}</h4>
+ <div style="font-size:12.5px;color:var(--mut)">${esc(r.nombre)} • ${esc(p.cat)} • ${esc(p.obs||'')}</div>
+ ${p.foto?`<img class="foto" src="${p.foto}">`:'<div style="color:var(--mut);font-size:13px">Sin foto (solo lectura)</div>'}
+ </div></div>`).join('')+`</div></div>`;
+}
+
+// CRUD ruta
+function abrirModal(){$('mt').textContent='Nueva hoja de ruta virtual — Jalisco 23';$('fId').value='';$('fNom').value='';$('fResp').value='';$('fFec').value=new Date().toISOString().slice(0,10);$('fDes').value='';setNivSel([]);$('modal').classList.add('open');}
+function cerrar(){$('modal').classList.remove('open');}
+function editar(id){const r=rutas.find(x=>x.id===id);$('fId').value=r.id;$('fNom').value=r.nombre;$('fLinea').value=r.linea;$('fResp').value=r.responsable||'';$('fFec').value=r.fecha||'';$('fTur').value=r.turno||'Turno A';$('fEst').value=r.estado;$('fDes').value=r.descripcion||'';setNivSel(r.niveles);$('modal').classList.add('open');}
+function guardar(e){e.preventDefault();const niv=getNivSel();if(!niv.length){alert('Selecciona al menos un nivel (N0, N5, N8...)');return;}
+ const o={nombre:$('fNom').value.trim(),linea:$('fLinea').value,responsable:$('fResp').value.trim(),fecha:$('fFec').value,turno:$('fTur').value,estado:$('fEst').value,niveles:niv.sort((a,b)=>a-b),descripcion:$('fDes').value.trim()};
+ const id=$('fId').value;if(id){Object.assign(rutas.find(x=>x.id===id),o);}else{const nr={id:uid(),puntos:[],...o};rutas.unshift(nr);det=nr.id;}
+ cerrar();render();}
+function duplicar(id){const r=rutas.find(x=>x.id===id);const c=JSON.parse(JSON.stringify(r));c.id=uid();c.nombre=r.nombre+' (copia)';c.estado='planificacion';c.puntos.forEach(p=>{p.id=uid();p.temp='';p.cond='Normal';p.obs='';p.foto='';});rutas.unshift(c);render();}
+function eliminar(id){if(!confirm('¿Eliminar ruta?'))return;rutas=rutas.filter(x=>x.id!==id);if(det===id){det=null;$('detalle').innerHTML='';}render();}
+function vaciar(){if(!confirm('¿Vaciar todo Jalisco 23?'))return;rutas=[];det=null;$('detalle').innerHTML='';render();}
+
+// detalle / ejecución
+function ver(id,soft){det=id;const r=rutas.find(x=>x.id===id);if(!r)return;const p=prog(r);
+ const opts=(arr)=>arr.map(e=>`<option>${e}</option>`).join('');
+ $('detalle').innerHTML=`<div class="detail">
+ <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><h2 style="margin:0;flex:1;min-width:220px">🛣️ ${esc(r.nombre)}</h2>
+ <button class="btn-l btn-sm no-print" onclick="det=null;$('detalle').innerHTML=''">✖ Cerrar</button></div>
+ <p style="color:var(--mut)">${esc(r.linea)} • ${ (r.niveles||[]).map(n=>'N'+n).join(' • ')} • 👤 ${esc(r.responsable||'—')} • 📅 ${r.fecha||'—'} • ${esc(r.turno||'')} • ${esc(r.descripcion||'')}</p>
+ <div class="prog" style="margin:0 0 6px"><i style="width:${p}%"></i></div><small>${p}% puntos medidos</small>
+ <h3>➕ Añadir punto de inspección</h3>
+ <div class="punto"><div class="prow">
+ <label>Nivel<select id="aNiv">${(r.niveles||NIVELES).map(n=>`<option value="${n}">Nivel ${n}</option>`).join('')}</select></label>
+ <label>Categoría<select id="aCat" onchange="updCat()"><option>Mecánico</option><option>Eléctrico</option></select></label>
+ <label>Equipo*<select id="aEq">${opts(EQUIPOS_MEC)}</select></label>
+ <label>Tag / código / ubicación<input type="text" id="aTag" placeholder="Ej: CH-N13-02, MTR-ELEV-45, BND-05..."></label>
+ <label>Temp. límite °C (referencia)<input type="number" id="aLim" placeholder="Ej: 75"></label>
+ <label>Nota<input type="text" id="aNota" placeholder="Lado, posición..."></label>
+ </div><button class="btn-d btn-sm" style="margin-top:8px" onclick="addPunto('${r.id}')">+ Añadir a la ruta</button>
+ <div style="font-size:12px;color:var(--mut);margin-top:6px">Catálogo: chumaceras, bandas transportadoras, tornillos sinfín, molinos, extrusoras, bombas agua/aceite, básculas, secadores, ciclones, elevadores, motores, filtros de manga, válvulas rotativas, cajas reductoras, piñones, cadenas y más.</div></div>
+ <h3>📍 Puntos (${(r.puntos||[]).length}) — sube foto térmica + temperatura</h3>
+ ${(r.puntos||[]).length?(r.puntos||[]).map((pt,i)=>{
+ const cls=pt.cond==='Crítico'?'crit':pt.cond==='Alerta'?'alert':(pt.temp!==''&&pt.temp!=null)?'okk':'';
+ return `<div class="punto ${cls}">
+ <b>${i+1}. N${pt.nivel} • ${esc(pt.equipo)}</b> <span style="color:var(--mut)">[${esc(pt.cat)}] ${pt.tag?('• Tag: '+esc(pt.tag)):''} ${pt.lim?('• Lím: '+pt.lim+'°C'):''}</span>
+ ${pt.nota?`<div style="font-size:13px;color:var(--mut)">${esc(pt.nota)}</div>`:''}
+ <div class="prow">
+ <label>🌡️ Temperatura medida °C<input type="number" step="0.1" value="${pt.temp??''}" onchange="setCampo('${r.id}','${pt.id}','temp',this.value)"></label>
+ <label>Diagnóstico<select onchange="setCampo('${r.id}','${pt.id}','cond',this.value)">
+ ${['Normal','Alerta','Crítico'].map(c=>`<option ${pt.cond===c?'selected':''}>${c}</option>`).join('')}</select></label>
+ <label class="no-print">📸 Foto termográfica / cámara<input type="file" accept="image/*" capture="environment" onchange="subirFoto(event,'${r.id}','${pt.id}')"></label>
+ <label>Observación<input type="text" value="${esc(pt.obs||'')}" placeholder="Ruido, vibración, olor, fuga..." onchange="setCampo('${r.id}','${pt.id}','obs',this.value)"></label>
+ </div>
+ ${pt.temp!==''&&pt.temp!=null?`<div class="temp">${pt.temp}°C — ${pt.cond==='Crítico'?'🔴 CRÍTICO':pt.cond==='Alerta'?'🟡 ALERTA':'🟢 NORMAL'}</div>`:''}
+ ${pt.foto?`<img class="foto" src="${pt.foto}"><div class="no-print" style="margin-top:6px;display:flex;gap:6px"><button class="btn-l btn-sm" onclick="verFoto('${r.id}','${pt.id}')">🔍 Ampliar</button><button class="btn-l btn-sm" onclick="setCampo('${r.id}','${pt.id}','foto','')">🗑 Quitar foto</button></div>`:''}
+ <div class="no-print" style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+ <button class="btn-l btn-sm" onclick="moverP('${r.id}','${pt.id}',-1)">↑ Subir orden</button>
+ <button class="btn-l btn-sm" onclick="moverP('${r.id}','${pt.id}',1)">↓ Bajar</button>
+ <button class="btn-r btn-sm" onclick="delP('${r.id}','${pt.id}')">Quitar punto</button></div>
+ </div>`;}).join(''):'<p style="color:var(--mut)">Sin puntos. Añade el primero arriba 👆</p>'}
+ <div class="no-print" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+ <button class="btn-gr btn-sm" onclick="setEstado('${r.id}','en_curso')">▶ Poner en inspección</button>
+ <button class="btn-d btn-sm" onclick="setEstado('${r.id}','completada')">✅ Cerrar ruta</button>
+ <button class="btn-l btn-sm" onclick="csv('${r.id}')">⬇ CSV</button></div>
+ </div>`;
+ if(!soft)$('detalle').scrollIntoView({behavior:'smooth'});
+}
+function updCat(){const c=$('aCat').value;$('aEq').innerHTML=(c==='Eléctrico'?EQUIPOS_ELEC:EQUIPOS_MEC).map(e=>`<option>${e}</option>`).join('');}
+function addPunto(rid){const r=rutas.find(x=>x.id===rid);
+ const eq=$('aEq').value, tag=$('aTag').value.trim();
+ if(!eq){alert('Selecciona equipo');return;}
+ r.puntos.push({id:uid(),nivel:+$('aNiv').value,cat:$('aCat').value,equipo:eq,tag,lim:$('aLim').value,nota:$('aNota').value.trim(),temp:'',cond:'Normal',obs:'',foto:'',fecha:''});
+ if(r.estado==='planificacion')r.estado='en_curso'; render();}
+function setCampo(rid,pid,k,v){const r=rutas.find(x=>x.id===rid);const p=r.puntos.find(x=>x.id===pid);p[k]=v;
+ if(k==='temp'&&v!==''&&+v>=(+p.lim||9999)&&p.lim)p.cond='Alerta';
+ // auto-cierre
+ if(r.puntos.length&&r.puntos.every(x=>x.temp!==''&&x.temp!=null))r.estado='completada';
+ render();}
+function moverP(rid,pid,d){const r=rutas.find(x=>x.id===rid);const i=r.puntos.findIndex(p=>p.id===pid);const j=i+d;if(j<0||j>=r.puntos.length)return;[r.puntos[i],r.puntos[j]]=[r.puntos[j],r.puntos[i]];render();}
+function delP(rid,pid){if(!confirm('¿Quitar punto?'))return;const r=rutas.find(x=>x.id===rid);r.puntos=r.puntos.filter(p=>p.id!==pid);render();}
+function setEstado(rid,e){rutas.find(x=>x.id===rid).estado=e;render();}
+function verFoto(rid,pid){const p=rutas.find(x=>x.id===rid).puntos.find(x=>x.id===pid);const w=window.open('','_blank');w.document.write(`<img src="${p.foto}" style="max-width:100%">`);}
+
+// foto comprimida
+function subirFoto(ev,rid,pid){const f=ev.target.files[0];if(!f)return;const rd=new FileReader();
+ rd.onload=()=>{const img=new Image();img.onload=()=>{const max=900;let{w,h}= {w:img.width,h:img.height};const s=Math.min(1,max/Math.max(w,h));w=Math.round(w*s);h=Math.round(h*s);
+ const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);
+ const url=c.toDataURL('image/jpeg',0.72);
+ const r=rutas.find(x=>x.id===rid);r.puntos.find(x=>x.id===pid).foto=url;render();};img.src=rd.result;};
+ rd.readAsDataURL(f);}
+
+function exportarJSON(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(rutas,null,2)],{type:'application/json'}));a.download='jalisco23_rutas.json';a.click();}
+function importar(ev){const f=ev.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(Array.isArray(d)){rutas=d;render();alert('Restaurado OK');}else alert('Archivo inválido');}catch{alert('No se pudo leer');}};rd.readAsText(f);ev.target.value='';}
+function csv(rid){const r=rutas.find(x=>x.id===rid);
+ let s='Linea;Ruta;Nivel;Categoria;Equipo;Tag;TempLim;TempMed;Condicion;Observacion;Foto(S/N)\n'+r.puntos.map(p=>`${r.linea};${r.nombre};N${p.nivel};${p.cat};${p.equipo};${p.tag||''};${p.lim||''};${p.temp};${p.cond};${(p.obs||'').replace(/;/g,',')};${p.foto?'SI':'NO'}`).join('\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(["\ufeff"+s],{type:'text/csv'}));a.download='jalisco23_'+r.linea.replace(/\s/g,'')+'.csv';a.click();}
+function esc2(s){return esc(s);}
+
+function cargarDemo(){if(rutas.length&&!confirm('¿Añadir demo Jalisco 23?'))return;
+ const mk=(nivel,cat,equipo,tag,lim)=>({id:uid(),nivel,cat,equipo,tag,lim,nota:'',temp:'',cond:'Normal',obs:'',foto:''});
+ rutas.unshift({id:uid(),nombre:'Ruta Termográfica L5 – Turno A (N0 a N19)',linea:'Línea 5',responsable:'J. Paredes',fecha:new Date().toISOString().slice(0,10),turno:'Turno A',estado:'en_curso',niveles:[0,5,8,13,19],descripcion:'Balanceado: priorizar chumaceras, bandas y motores con historial de calentamiento.',puntos:[
+  mk(0,'Mecánico','Banda transportadora','BND-05-N0',60),mk(0,'Eléctrico','Motor eléctrico','MTR-BND-05',75),
+  mk(5,'Mecánico','Chumacera','CH-ELEV-05-N5',70),mk(8,'Mecánico','Transportador de tornillo / sinfín','TOR-08-01',70),
+  mk(13,'Mecánico','Chumacera','CH-SEC-13-02',75),mk(13,'Mecánico','Caja reductora / reductor','RED-SEC-13',80),
+  mk(19,'Eléctrico','Tablero / CCM','CCM-N19',60),mk(19,'Mecánico','Elevador de cangilones','ELV-19-01',70)]},
+ {id:uid(),nombre:'Ruta Termográfica L6 – Turno B (N24 a N45)',linea:'Línea 6',responsable:'M. Torres',fecha:new Date().toISOString().slice(0,10),turno:'Turno B',estado:'planificacion',niveles:[24,29,35,45],descripcion:'Incluye molino, extrusora, filtro de mangas y ciclones.',puntos:[
+  mk(24,'Mecánico','Molino','MOL-24-01',85),mk(29,'Mecánico','Extrusora / peletizadora','EXT-29-01',90),
+  mk(29,'Mecánico','Válvula rotativa / esclusa','VR-29-03',70),mk(35,'Mecánico','Filtro de mangas','FM-35-01',65),
+  mk(35,'Mecánico','Ciclón','CIC-35-02',70),mk(45,'Mecánico','Bomba de aceite','BA-45-01',75),
+  mk(45,'Eléctrico','Motor eléctrico','MTR-EXT-45',80),mk(45,'Mecánico','Piñón','PIN-45-CAD',70),mk(45,'Mecánico','Cadena de transmisión','CAD-45-01',65)]});
+ render();}
+
+render();
+</script>
+<script>window.__CF$cv$params={r:'a4b9035eebdb8979',t:'MTc5MjE3NDE1MQ==',u:'01a145e75785731390849dc308d3dd73',ut:'YE4xNhklXCg56dFOwDWdnr59nqiwTDZ3m8HnZ3B97nU-1792174151-1.2.1.1-Xustu22f8Pp1Yxb_oFNm39lP0GiG_Vcrc8PHhpUuwSgx5diCPpy3ogCS.F4LCPnJTPU3.4n.cL0977wAL96ezYDbFHZyWrBaH1JVVzKqWA4',i:60};(function(){if(!document.body)return;var s=document.createElement('script');s.src='/cdn-cgi/challenge-platform/scripts/precursor/main.js';document.head.appendChild(s);})();</script></body>
+</html>
